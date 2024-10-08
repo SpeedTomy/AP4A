@@ -1,6 +1,9 @@
+#include <iostream>
 #include "Server.h"
-#include "Sensor.h"
 #include "Scheduler.h"
+#include <string>
+#include "Sensor.h"
+
 
 int main() {
     Server server;
