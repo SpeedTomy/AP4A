@@ -1,0 +1,3 @@
+C:/Users/thoma/Documents/Documents/Codes/AP4A/build/CMakeFiles/untitled.dir
+C:/Users/thoma/Documents/Documents/Codes/AP4A/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/thoma/Documents/Documents/Codes/AP4A/build/CMakeFiles/ZERO_CHECK.dir

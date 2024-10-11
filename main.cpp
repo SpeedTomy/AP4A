@@ -1,22 +1,33 @@
 #include <iostream>
-#include "Server.h"
+#include "TemperatureSensor.h"
+// #include "HumiditySensor.h"
+// #include "LightSensor.h"
 #include "Scheduler.h"
-#include <string>
+#include "Server.h"
 #include "Sensor.h"
 
-
 int main() {
+    
+    // Création du serveur et du scheduler
     Server server;
-    Sensor sensor;
+    Scheduler scheduler(5);
 
-    std::string data = sensor.getData();
+    // Création de capteurs
+    TemperatureSensor tempSensor(server);
+    // HumiditySensor humiditySensor;
+    // LightSensor lightSensor;
 
-    // Affichage dans la console
-    server.consoleWrite("Donnée reçue : " + data);
+    // Ajout des capteurs au scheduler
+    scheduler.addSensor(tempSensor);
+    // scheduler.addSensor(&humiditySensor);
+    // scheduler.addSensor(&lightSensor);
 
-    // Écriture dans le fichier de log
-    server.fileWrite("log_sensor.csv", "2024-09-12," + data);
+    // Simulation de l'ordonnancement des capteurs
+    scheduler.simulation();
 
+    // Écrire des données dans la console et le fichier
+    server.consoleWrite("Données envoyées au serveur.");
+    server.fileWrite("log_sensor.csv", "2024-10-06,Temperature: " + tempSensor.getData());
+    
     return 0;
 }
-//fizuohfudfh zeçuè
