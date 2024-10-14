@@ -1,9 +1,8 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
-#include <vector>
 #include "Sensor.h"
-#include "Server.h"
+#include <vector>
 
 class Scheduler {
 public:
@@ -11,17 +10,17 @@ public:
     Scheduler(int interval);
 
     // Destructeur
-    virtual ~Scheduler();
+    ~Scheduler();
+
+    // Ajouter un capteur
+    void addSensor(Sensor& sensor);
 
     // Démarre la simulation
     void simulation();
 
-    // Ajouter un capteur au Scheduler
-    void addSensor(Sensor& sensor);
-
 private:
-    int interval;  // Intervalle de temps entre chaque mise à jour des capteurs (en secondes)
-    std::vector<Sensor*> sensors;  // Liste des capteurs à planifier
+    int interval;  // Intervalle de mise à jour des capteurs
+    std::vector<Sensor*> sensors;  // Liste des capteurs gérés par le scheduler
 };
 
-#endif // SCHEDULER_H
+#endif

@@ -7,10 +7,13 @@
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Server.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Sensor.cpp">
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\TemperatureSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\TemperatureSensor.cpp">
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Sensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Scheduler.cpp">

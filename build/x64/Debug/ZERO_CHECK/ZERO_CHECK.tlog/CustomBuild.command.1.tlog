@@ -1,0 +1,10 @@
+^C:\USERS\THOMA\DOCUMENTS\DOCUMENTS\CODES\AP4A\BUILD\CMAKEFILES\C4F4CEBB2BE328DF3AC9A9FA62506873\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/thoma/Documents/Documents/Codes/AP4A -BC:/Users/thoma/Documents/Documents/Codes/AP4A/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/thoma/Documents/Documents/Codes/AP4A/build/untitled.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

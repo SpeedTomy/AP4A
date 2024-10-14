@@ -1,29 +1,37 @@
 #include "TemperatureSensor.h"
-#include <cstdlib>
+#include <cstdlib>  // For rand()
 #include <iostream>
+#include "Data.cpp"
 
-// Constructeur
-TemperatureSensor::TemperatureSensor(Server& server) 
-    : Sensor<float>("Temperature", server) {}
+// Constructor
+TemperatureSensor::TemperatureSensor(Server& server)
+    : Sensor("Temperature", server) {
+    data = new DTemp();  // Initialize a DTemp object
+}
 
-// Génère une nouvelle donnée aléatoire pour le capteur de température
+// Destructor
+TemperatureSensor::~TemperatureSensor() {
+    // The base class destructor will delete the data object
+}
+
+// Generate temperature data
 void TemperatureSensor::update() {
-    // Génère une température aléatoire en tant que float entre 0.0 et 99.9
-    float temperature = static_cast<float>(std::rand() % 1000) / 10.0f;  // Valeur entre 0.0 et 99.9
+    float temperature = static_cast<float>(std::rand() % 1000) / 10.0f;  // Random value between 0.0 and 99.9
+    dynamic_cast<DTemp*>(data)->setData(temperature);  // Update the temperature value
 
-    // Assigne la température directement au membre 'data' (qui est maintenant de type float)
-    data = temperature;
+    std::cout << "TempSensor ID " << id << " updated data: " << temperature << "°C" << std::endl;
+}
 
-    // Affiche la nouvelle température générée dans la console
-    std::cout << "TempSensor ID " << id << " met à jour sa donnée: " << data << "°C" << std::endl;
+// Send temperature data to the server
+void TemperatureSensor::execute() {
+    float temperature = dynamic_cast<DTemp*>(data)->getData();  // Get the temperature value
+    server.receiveData(id, temperature);
+
+    std::cout << "TempSensor ID " << id << " sent data: " << temperature << std::endl;
 }
 
 
-// Implémentation de la méthode execute
-void TemperatureSensor::execute() {
-    // Envoie les données au serveur
-    server.receiveData(id, data);
-
-    // Affiche dans la console
-    std::cout << "TempSensor ID " << id << " envoie des données: " << data << std::endl;
+// Surcharge de getData() pour retourner la donnée spécifique du capteur
+float TemperatureSensor::getData() const {
+    return dynamic_cast<DTemp*>(data)->getData();  // Récupère la température
 }

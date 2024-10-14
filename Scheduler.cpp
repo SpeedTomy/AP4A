@@ -6,33 +6,33 @@
 // Constructeur
 Scheduler::Scheduler(int interval) : interval(interval) {}
 
-// Destructeur 
+// Destructeur
 Scheduler::~Scheduler() {
-    // Libérer les ressources dynamiques (par exemple, supprimer les capteurs)
+    // Libérer les ressources dynamiques
     for (Sensor* sensor : sensors) {
-        delete sensor;  // Suppression de chaque capteur
+        delete sensor;  // Supprimer chaque capteur
     }
-    sensors.clear();  // Vide la liste des capteurs
+    sensors.clear();  // Vider la liste des capteurs
 }
-// Ajouter un capteur à la liste des capteurs gérés par le Scheduler
+
+// Ajouter un capteur à la liste
 void Scheduler::addSensor(Sensor& sensor) {
     sensors.push_back(&sensor);
 }
 
 // Démarre la simulation
 void Scheduler::simulation() {
-    int maxIterations = 10;  // Nombre maximum d'itérations
-    int iterations = 0;
-
-    while (iterations < maxIterations) {
+    while (true) {  // Boucle infinie pour continuer tant que le programme n'est pas arrêté
         for (auto& sensor : sensors) {
-            sensor->update();
-            sensor->execute();  // Mise à jour des capteurs
+            sensor->update();  // Mettre à jour les capteurs
+            sensor->execute(); // Exécuter l'envoi de données
         }
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));  // Pause
-        iterations++;
+        // Attendre l'intervalle spécifié entre chaque mesure
+        std::this_thread::sleep_for(std::chrono::milliseconds(interval));
+
+        // Afficher un message pour indiquer que la simulation est en cours
         std::cout << "Simulation en cours..." << std::endl;
     }
-
 }
+

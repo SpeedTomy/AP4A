@@ -3,72 +3,38 @@
 
 #include <string>
 #include "Server.h"
+#include "Data.h"
 
-class Server;
-
-template <typename T>
+class Server;  // Forward declaration
 
 class Sensor {
 public:
-    // Constructeur
+    // Constructor
     Sensor(const std::string& type, Server& server);
 
-    // Destructeur
+    // Destructor
     virtual ~Sensor();
 
-    // Méthode d'activation (mise à jour des données du capteur)
+    // Pure virtual method to update sensor data
     virtual void update() = 0;
 
-    // Méthode d'exécution qui génère les données
+    // Pure virtual method to execute the sensor's task
     virtual void execute() = 0;
 
-   // Méthode pour récupérer les données du capteur
-    T getData() const;
+    // Méthode pour obtenir la donnée
+    virtual float getData() const = 0;
 
-    // Accesseur pour l'attribut type
+    // Accessor for the sensor type
     std::string getType() const;
 
-     // Retourne l'ID unique du capteur
+    // Returns the sensor's unique ID
     int getId() const;
 
 protected:
-    int id;  // Compteur statique pour les ID des capteurs
-    std::string type;
-    T data;  // Donnée de type générique
-    Server& server;  // Référence à un serveur
+    int id;             // Unique ID of the sensor
+    std::string type;   // Sensor type (e.g., Temperature, Light, etc.)
+    Server& server;     // Reference to the server
+    Data* data;         // Pointer to the Data object
 };
-
-// Implémentation du constructeur
-template <typename T>
-Sensor<T>::Sensor(const std::string& type, Server& server)
-    : type(type), server(server) {
-
-    // Lors de la création, demander au serveur combien de capteurs de ce type existent
-    id = server.getSensorCount(type) + 1;  // L'ID est le nombre actuel de capteurs de ce type + 1
-    server.addSensor(*this);  // Ajouter le capteur au serveur 
-}
-
-// Implémentation du destructeur
-template <typename T>
-Sensor<T>::~Sensor() {}
-
-
-// Retourne les données du capteur
-template <typename T>
-T Sensor<T>::getData() const {
-    return data;
-}
-
-// Retourne le type du capteur
-template <typename T>
-std::string Sensor<T>::getType() const {
-    return type;
-}
-
-// Retourne l'ID unique du capteur
-template <typename T>
-int Sensor<T>::getId() const {
-    return id;
-}
 
 #endif // SENSOR_H

@@ -2,18 +2,24 @@
 #define TEMPERATURESENSOR_H
 
 #include "Sensor.h"
+#include "Data.h"
 
-class TemperatureSensor : public Sensor<float> {
+class TemperatureSensor : public Sensor {
 public:
-
-    // Constructeur
+    // Constructor
     TemperatureSensor(Server& server);
 
-    // Méthode de mise à jour (génère une nouvelle donnée aléatoire)
+    // Destructor
+    virtual ~TemperatureSensor();
+
+    // Override update to generate temperature data
     void update() override;
 
-    // Méthode pour envoyer les données au serveur
+    // Override execute to send temperature data to the server
     void execute() override;
+
+    // Surcharge de getData() pour récupérer la température
+    float getData() const override; // La méthode retourne la valeur de température
 };
 
 #endif // TEMPERATURESENSOR_H
