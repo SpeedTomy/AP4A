@@ -21,20 +21,16 @@ public:
     // Pure virtual method to execute the sensor's task
     virtual void execute() = 0;
 
-    // Méthode pour obtenir la donnée
-    virtual float getData() const = 0;
-
     // Accessor for the sensor type
     std::string getType() const;
 
     // Returns the sensor's unique ID
-    int getId() const;
+    std::string getId() const;
 
 protected:
-    int id;             // Unique ID of the sensor
+    std::string id;             // Unique ID of the sensor
     std::string type;   // Sensor type (e.g., Temperature, Light, etc.)
     Server& server;     // Reference to the server
-    Data* data;         // Pointer to the Data object
 };
 
 #endif // SENSOR_H

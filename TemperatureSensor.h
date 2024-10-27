@@ -18,8 +18,8 @@ public:
     // Override execute to send temperature data to the server
     void execute() override;
 
-    // Surcharge de getData() pour récupérer la température
-    float getData() const override; // La méthode retourne la valeur de température
+private:
+    Data<float>* data;         // Pointer to the Data object
 };
 
 #endif // TEMPERATURESENSOR_H

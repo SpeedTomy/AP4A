@@ -1,11 +1,19 @@
 #ifndef DATA_H
 #define DATA_H
 
-class Data {
-public:
-    virtual ~Data() {}
-    virtual float getData() const = 0;
-    virtual void setData(float value) = 0;
-};
 
+template <typename T> class Data {
+public:
+     Data() : data(T()) {}  // Initialise avec la valeur par défaut du type T
+     ~Data() {}
+     T getData() const {
+          return data;
+     }
+     void setData(T value) {
+          data = value;
+     }
+private:
+     T data;
+
+};
 #endif // DATA_H

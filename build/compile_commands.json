@@ -1,0 +1,44 @@
+[
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\main.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\main.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/main.cpp",
+  "output": "CMakeFiles/untitled.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\Server.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\Server.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/Server.cpp",
+  "output": "CMakeFiles/untitled.dir/Server.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\TemperatureSensor.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\TemperatureSensor.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/TemperatureSensor.cpp",
+  "output": "CMakeFiles/untitled.dir/TemperatureSensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\Sensor.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\Sensor.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/Sensor.cpp",
+  "output": "CMakeFiles/untitled.dir/Sensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\Scheduler.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\Scheduler.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/Scheduler.cpp",
+  "output": "CMakeFiles/untitled.dir/Scheduler.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\HumiditySensor.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\HumiditySensor.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/HumiditySensor.cpp",
+  "output": "CMakeFiles/untitled.dir/HumiditySensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\SoundSensor.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\SoundSensor.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/SoundSensor.cpp",
+  "output": "CMakeFiles/untitled.dir/SoundSensor.cpp.obj"
+}
+]

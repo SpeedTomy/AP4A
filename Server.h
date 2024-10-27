@@ -29,20 +29,18 @@ public:
     int getSensorCount(const std::string& type) const;
 
     // Recevoir des données génériques
-    // Méthodes surchargées pour différents types
-    void receiveData(int sensorID, float data);
-    void receiveData(int sensorID, int data);
-    void receiveData(int sensorID, const std::string& data);
+    template <typename T>
+    void receiveData(const Sensor& sensor, T data);
 
 private:
     // Liste des capteurs enregistrés
     std::vector<Sensor*> sensors;
 
     // Compteurs pour le nombre de capteurs de chaque type
-    int sensorCounts[3];  // [0] : Temperature, [1] : Humidity, [2] : Light
+    int sensorCounts[4];  // [0] : Temperature, [1] : Humidity, [2] : Light, [3] : Sound
 
     // Récupérer un capteur par son ID
-    Sensor* getSensorById(int sensorID);
+    Sensor* getSensorById(std::string sensorID);
 };
 
 #endif // SERVER_H

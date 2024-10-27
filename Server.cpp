@@ -12,6 +12,7 @@ Server::Server() {
     sensorCounts[0] = 0;  // Temperature
     sensorCounts[1] = 0;  // Humidity
     sensorCounts[2] = 0;  // Light
+    sensorCounts[3] = 0;  // Sound
 }
 
 // Destructeur
@@ -24,6 +25,7 @@ Server::~Server() {
 
 // Ajouter un capteur au serveur
 void Server::addSensor(Sensor& sensor) {
+
     sensors.push_back(&sensor);
 
     // Mise à jour des compteurs de capteurs par type
@@ -33,7 +35,10 @@ void Server::addSensor(Sensor& sensor) {
         sensorCounts[1]++;
     } else if (sensor.getType() == "Light") {
         sensorCounts[2]++;
+    } else if (sensor.getType() == "Sound") {
+        sensorCounts[3]++;
     }
+
 }
 
 // Afficher des données dans la console
@@ -43,6 +48,7 @@ void Server::consoleWrite(const std::string& data) {
 
 // Créer un fichier de log spécifique au capteur avec le format ID, Type, valeur, heure, date
 void Server::fileWrite(const Sensor& sensor, const std::string& data) {
+   
     // Créer un nom de fichier basé sur l'ID du capteur
     std::ostringstream filename;
     filename << "sensor_" << sensor.getType() << ".csv";  // Exemple: sensor_1.log
@@ -71,6 +77,12 @@ void Server::fileWrite(const Sensor& sensor, const std::string& data) {
             } else if (sensor.getType() == "Light") {
                 logfile << "Fichier log des capteurs de lumière\n";
                 logfile << "Id, Intensité lumineuse, Heure, Date\n";
+            } else if (sensor.getType() == "Humidity") {
+                logfile << "Fichier log des capteurs d'humidité\n";
+                logfile << "Id, Humidité %, Heure, Date\n";
+            } else if (sensor.getType() == "Sound") {
+                logfile << "Fichier log des capteurs de son\n";
+                logfile << "Id, Son dB, Heure, Date\n";
             }
         }
         // Écrire les données dans le fichier au format : ID, Type, valeur, heure, date
@@ -97,38 +109,43 @@ int Server::getSensorCount(const std::string& type) const {
         return sensorCounts[1];
     } else if (type == "Light") {
         return sensorCounts[2];
+    } else if (type == "Sound") {
+        return sensorCounts[3];
     }
     return 0;  // Aucun capteur de ce type
 }
 
 // Recevoir des données génériques
-void Server::receiveData(int sensorID, float data) {
-    std::cout << "Received data from Sensor " << sensorID << ": " << data << std::endl;
-    // Ajouter l'enregistrement dans le fichier log spécifique au capteur
-    Sensor* sensor = getSensorById(sensorID);
-    if (sensor) {
-        fileWrite(*sensor, std::to_string(data));
+template <typename T>
+void Server::receiveData(const Sensor& sensor, T data) {
+    // Définir l'unité en fonction du type de capteur
+    std::string unite;
+    if (sensor.getType() == "Temperature") {
+        unite = "°C";
+    } else if (sensor.getType() == "Light") {
+        unite = "";
+    } else if (sensor.getType() == "Humidity") {
+        unite = "%";
+    } else if (sensor.getType() == "Sound") {
+        unite = "dB";
+    } else {
+        unite = "unite inconnue";  // Cas par défaut si le type est inconnu
     }
-}
-void Server::receiveData(int sensorID, int data) {
-    std::cout << "Received data from Sensor " << sensorID << ": " << data << std::endl;
-    // Ajouter l'enregistrement dans le fichier log spécifique au capteur
-    Sensor* sensor = getSensorById(sensorID);
-    if (sensor) {
-        fileWrite(*sensor, "Data: " + std::to_string(data));
-    }
-}
-void Server::receiveData(int sensorID, const std::string& data) {
-    std::cout << "Received data from Sensor " << sensorID << ": " << data << std::endl;
-    // Ajouter l'enregistrement dans le fichier log spécifique au capteur
-    Sensor* sensor = getSensorById(sensorID);
-    if (sensor) {
-        fileWrite(*sensor, "Data: " + data);
+
+    // Afficher les données reçues avec l'unité
+    std::cout << "Received data from Sensor " << sensor.getId() << ": " << data << unite << std::endl;
+
+    // Écriture dans le fichier de log
+    if constexpr (std::is_same<T, std::string>::value) {
+        fileWrite(sensor, data);  // data est déjà une std::string
+    } else {
+        fileWrite(sensor, std::to_string(data));  // Convertit les autres types en string
     }
 }
 
+
 // Récupérer un capteur par son ID
-Sensor* Server::getSensorById(int sensorID) {
+Sensor* Server::getSensorById(std::string sensorID) {
     for (Sensor* sensor : sensors) {
         if (sensor->getId() == sensorID) {
             return sensor;
@@ -136,3 +153,9 @@ Sensor* Server::getSensorById(int sensorID) {
     }
     return nullptr;  // Capteur non trouvé
 }
+
+// Nécessaire pour que la fonction template soit incluse dans le fichier header
+template void Server::receiveData<int>(const Sensor& sensor, int data);
+template void Server::receiveData<float>(const Sensor& sensor, float data);
+template void Server::receiveData<bool>(const Sensor& sensor, bool data);
+template void Server::receiveData<std::string>(const Sensor& sensor, std::string data);
