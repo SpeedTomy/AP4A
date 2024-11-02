@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/thoma/CLionProjects/untitled/HumiditySensor.cpp" "CMakeFiles/untitled.dir/HumiditySensor.cpp.obj" "gcc" "CMakeFiles/untitled.dir/HumiditySensor.cpp.obj.d"
+  "C:/Users/thoma/CLionProjects/untitled/LightSensor.cpp" "CMakeFiles/untitled.dir/LightSensor.cpp.obj" "gcc" "CMakeFiles/untitled.dir/LightSensor.cpp.obj.d"
   "C:/Users/thoma/CLionProjects/untitled/Scheduler.cpp" "CMakeFiles/untitled.dir/Scheduler.cpp.obj" "gcc" "CMakeFiles/untitled.dir/Scheduler.cpp.obj.d"
   "C:/Users/thoma/CLionProjects/untitled/Sensor.cpp" "CMakeFiles/untitled.dir/Sensor.cpp.obj" "gcc" "CMakeFiles/untitled.dir/Sensor.cpp.obj.d"
   "C:/Users/thoma/CLionProjects/untitled/Server.cpp" "CMakeFiles/untitled.dir/Server.cpp.obj" "gcc" "CMakeFiles/untitled.dir/Server.cpp.obj.d"

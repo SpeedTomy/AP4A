@@ -6,20 +6,27 @@
 
 class HumiditySensor : public Sensor {
 public:
-    // Constructor
-    HumiditySensor(Server& server);
+// Constructor
+HumiditySensor(Server& server);
 
-    // Destructor
-    virtual ~HumiditySensor();
+// Destructor
+virtual ~HumiditySensor();
 
-    // Override update to generate humidity data
-    void update() override;
 
-    // Override execute to send humidity data to the server
-    void execute() override;
+// Constructor par copie
+HumiditySensor(const HumiditySensor& other);
+
+// Opérateur d'assignation par copie
+HumiditySensor& operator=(const HumiditySensor& other);
+
+// Override update to generate humidity data
+void update() override;
+
+// Override execute to send humidity data to the server
+void execute() override;
 
 private:
-    Data<float>* data;         // Pointer to the Data object
+Data<float>* data;         // Pointer to the Data object
 };
 
 #endif // HUMIDITYSENSOR_H

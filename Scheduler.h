@@ -6,21 +6,26 @@
 
 class Scheduler {
 public:
-    // Constructeur
-    Scheduler(int interval);
+// Constructeur
+Scheduler(int interval);
 
-    // Destructeur
-    ~Scheduler();
+// Destructeur
+~Scheduler();
+// Constructeur par copie
+Scheduler(const Scheduler& other);
 
-    // Ajouter un capteur
-    void addSensor(Sensor& sensor);
+// Opérateur d'assignation par copie
+Scheduler& operator=(const Scheduler& other);
 
-    // Démarre la simulation
-    void simulation();
+// Ajouter un capteur
+void addSensor(Sensor& sensor);
+
+// Démarre la simulation
+void simulation();
 
 private:
-    int interval;  // Intervalle de mise à jour des capteurs
-    std::vector<Sensor*> sensors;  // Liste des capteurs gérés par le scheduler
+int interval;  // Intervalle de mise à jour des capteurs
+std::vector<Sensor*> sensors;  // Liste des capteurs gérés par le scheduler
 };
 
 #endif

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/HumiditySensor.cpp.obj"
   "CMakeFiles/untitled.dir/HumiditySensor.cpp.obj.d"
+  "CMakeFiles/untitled.dir/LightSensor.cpp.obj"
+  "CMakeFiles/untitled.dir/LightSensor.cpp.obj.d"
   "CMakeFiles/untitled.dir/Scheduler.cpp.obj"
   "CMakeFiles/untitled.dir/Scheduler.cpp.obj.d"
   "CMakeFiles/untitled.dir/Sensor.cpp.obj"

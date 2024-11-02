@@ -58,7 +58,8 @@
 				3,
 				4,
 				6,
-				7
+				7,
+				9
 			]
 		}
 	],
@@ -107,7 +108,8 @@
 				3,
 				4,
 				6,
-				7
+				7,
+				9
 			]
 		},
 		{
@@ -115,7 +117,8 @@
 			"sourceIndexes" : 
 			[
 				5,
-				8
+				8,
+				10
 			]
 		}
 	],
@@ -171,6 +174,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "SoundSensor.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "LightSensor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "LightSensor.h",
 			"sourceGroupIndex" : 1
 		}
 	],

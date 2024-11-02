@@ -40,5 +40,11 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\SoundSensor.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\SoundSensor.cpp",
   "file": "C:/Users/thoma/CLionProjects/untitled/SoundSensor.cpp",
   "output": "CMakeFiles/untitled.dir/SoundSensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/thoma/CLionProjects/untitled/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\untitled.dir\\LightSensor.cpp.obj -c C:\\Users\\thoma\\CLionProjects\\untitled\\LightSensor.cpp",
+  "file": "C:/Users/thoma/CLionProjects/untitled/LightSensor.cpp",
+  "output": "CMakeFiles/untitled.dir/LightSensor.cpp.obj"
 }
 ]

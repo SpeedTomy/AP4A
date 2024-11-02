@@ -9,28 +9,34 @@ class Server;  // Forward declaration
 
 class Sensor {
 public:
-    // Constructor
-    Sensor(const std::string& type, Server& server);
+// Constructor
+Sensor(const std::string& type, Server& server);
 
-    // Destructor
-    virtual ~Sensor();
+// Destructor
+virtual ~Sensor();
 
-    // Pure virtual method to update sensor data
-    virtual void update() = 0;
+    // Constructor par copie
+Sensor(const Sensor& other);
 
-    // Pure virtual method to execute the sensor's task
-    virtual void execute() = 0;
+// Opérateur d'assignation par copie
+Sensor& operator=(const Sensor& other);
 
-    // Accessor for the sensor type
-    std::string getType() const;
+// Pure virtual method to update sensor data
+virtual void update() = 0;
 
-    // Returns the sensor's unique ID
-    std::string getId() const;
+// Pure virtual method to execute the sensor's task
+virtual void execute() = 0;
+
+// Accessor for the sensor type
+std::string getType() const;
+
+// Returns the sensor's unique ID
+std::string getId() const;
 
 protected:
-    std::string id;             // Unique ID of the sensor
-    std::string type;   // Sensor type (e.g., Temperature, Light, etc.)
-    Server& server;     // Reference to the server
+std::string id;             // Unique ID of the sensor
+std::string type;   // Sensor type (e.g., Temperature, Light, etc.)
+Server& server;     // Reference to the server
 };
 
 #endif // SENSOR_H

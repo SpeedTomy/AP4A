@@ -6,20 +6,26 @@
 
 class TemperatureSensor : public Sensor {
 public:
-    // Constructor
-    TemperatureSensor(Server& server);
+  // Constructor
+  TemperatureSensor(Server& server);
 
-    // Destructor
-    virtual ~TemperatureSensor();
+  // Destructor
+  virtual ~TemperatureSensor();
 
-    // Override update to generate temperature data
-    void update() override;
+// Constructor par copie
+  TemperatureSensor(const TemperatureSensor& other);
 
-    // Override execute to send temperature data to the server
-    void execute() override;
+  // Opérateur d'assignation par copie
+  TemperatureSensor& operator=(const TemperatureSensor& other);
+  
+  // Override update to generate temperature data
+  void update() override;
+
+  // Override execute to send temperature data to the server
+  void execute() override;
 
 private:
-    Data<float>* data;         // Pointer to the Data object
+  Data<float>* data;         // Pointer to the Data object
 };
 
 #endif // TEMPERATURESENSOR_H

@@ -22,12 +22,18 @@
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\SoundSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\LightSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\SoundSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\LightSensor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

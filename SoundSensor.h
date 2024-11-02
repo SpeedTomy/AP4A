@@ -6,20 +6,25 @@
 
 class SoundSensor : public Sensor {
 public:
-    // Constructor
-    SoundSensor(Server& server);
+// Constructor
+SoundSensor(Server& server);
 
-    // Destructor
-    virtual ~SoundSensor();
+// Destructor
+virtual ~SoundSensor();
 
-    // Override update to generate temperature data
-    void update() override;
+// Constructor par copie
+SoundSensor(const SoundSensor& other);
 
-    // Override execute to send temperature data to the server
-    void execute() override;
+// Opérateur d'assignation par copie
+SoundSensor& operator=(const SoundSensor& other);
+// Override update to generate temperature data
+void update() override;
+
+// Override execute to send temperature data to the server
+void execute() override;
 
 private:
-    Data<int>* data;         // Pointer to the Data object
+Data<int>* data;         // Pointer to the Data object
 };
 
 #endif // SOUNDSENSOR_H

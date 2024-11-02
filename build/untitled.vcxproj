@@ -325,6 +325,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\HumiditySensor.cpp" />
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\SoundSensor.cpp" />
     <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\SoundSensor.h" />
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\LightSensor.cpp" />
+    <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\LightSensor.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\build\ZERO_CHECK.vcxproj">

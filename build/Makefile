@@ -152,6 +152,30 @@ HumiditySensor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/HumiditySensor.cpp.s
 .PHONY : HumiditySensor.cpp.s
 
+LightSensor.obj: LightSensor.cpp.obj
+.PHONY : LightSensor.obj
+
+# target to build an object file
+LightSensor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/LightSensor.cpp.obj
+.PHONY : LightSensor.cpp.obj
+
+LightSensor.i: LightSensor.cpp.i
+.PHONY : LightSensor.i
+
+# target to preprocess a source file
+LightSensor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/LightSensor.cpp.i
+.PHONY : LightSensor.cpp.i
+
+LightSensor.s: LightSensor.cpp.s
+.PHONY : LightSensor.s
+
+# target to generate assembly for a file
+LightSensor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/LightSensor.cpp.s
+.PHONY : LightSensor.cpp.s
+
 Scheduler.obj: Scheduler.cpp.obj
 .PHONY : Scheduler.obj
 
@@ -308,6 +332,9 @@ help:
 	@echo ... HumiditySensor.obj
 	@echo ... HumiditySensor.i
 	@echo ... HumiditySensor.s
+	@echo ... LightSensor.obj
+	@echo ... LightSensor.i
+	@echo ... LightSensor.s
 	@echo ... Scheduler.obj
 	@echo ... Scheduler.i
 	@echo ... Scheduler.s
