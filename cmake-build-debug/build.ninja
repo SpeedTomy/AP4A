@@ -91,6 +91,12 @@ build CMakeFiles/untitled.dir/SoundSensor.cpp.obj: CXX_COMPILER__untitled_unscan
   OBJECT_DIR = CMakeFiles\untitled.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled.dir
 
+build CMakeFiles/untitled.dir/LightSensor.cpp.obj: CXX_COMPILER__untitled_unscanned_Debug C$:/Users/thoma/CLionProjects/untitled/LightSensor.cpp || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles\untitled.dir\LightSensor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled
@@ -99,7 +105,7 @@ build CMakeFiles/untitled.dir/SoundSensor.cpp.obj: CXX_COMPILER__untitled_unscan
 #############################################
 # Link the executable untitled.exe
 
-build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/Server.cpp.obj CMakeFiles/untitled.dir/TemperatureSensor.cpp.obj CMakeFiles/untitled.dir/Sensor.cpp.obj CMakeFiles/untitled.dir/Scheduler.cpp.obj CMakeFiles/untitled.dir/HumiditySensor.cpp.obj CMakeFiles/untitled.dir/SoundSensor.cpp.obj
+build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/Server.cpp.obj CMakeFiles/untitled.dir/TemperatureSensor.cpp.obj CMakeFiles/untitled.dir/Sensor.cpp.obj CMakeFiles/untitled.dir/Scheduler.cpp.obj CMakeFiles/untitled.dir/HumiditySensor.cpp.obj CMakeFiles/untitled.dir/SoundSensor.cpp.obj CMakeFiles/untitled.dir/LightSensor.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled.dir

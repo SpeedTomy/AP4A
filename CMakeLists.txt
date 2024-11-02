@@ -11,4 +11,6 @@ add_executable(untitled main.cpp Server.cpp
         Data.h
         HumiditySensor.cpp
         SoundSensor.cpp
-        SoundSensor.h)
+        SoundSensor.h
+        LightSensor.cpp
+        LightSensor.h)

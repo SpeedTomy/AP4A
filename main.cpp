@@ -1,9 +1,11 @@
 #include "TemperatureSensor.h"
 #include "HumiditySensor.h"
-//#include "LightSensor.h"
+#include "LightSensor.h"
 #include "SoundSensor.h"
+
 #include "Scheduler.h"
 #include "Server.h"
+
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -18,7 +20,6 @@ int main() {
     // Demarrage de la fonction aléatoire
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-
     // Création du serveur et du scheduler
     Server server;
     Scheduler scheduler(10000);  // Intervalle de mise à jour des capteurs
@@ -27,14 +28,13 @@ int main() {
     TemperatureSensor tempSensor(server);  // On passe directement le serveur au constructeur
     HumiditySensor humiditySensor(server); // Exemple pour le capteur d'humidité
     SoundSensor soundSensor(server);
-    // LightSensor lightSensor(server);       // Exemple pour le capteur de lumière
+    LightSensor lightsensor(server);
 
     // Ajout des capteurs au scheduler
     scheduler.addSensor(tempSensor);
     scheduler.addSensor(humiditySensor);
     scheduler.addSensor(soundSensor);
-
-    // scheduler.addSensor(lightSensor);
+    scheduler.addSensor(lightsensor);
 
     // Simulation de l'ordonnancement des capteurs
     scheduler.simulation();

@@ -76,7 +76,7 @@ void Server::fileWrite(const Sensor& sensor, const std::string& data) {
                 logfile << "Id, Température °C, Heure, Date\n";
             } else if (sensor.getType() == "Light") {
                 logfile << "Fichier log des capteurs de lumière\n";
-                logfile << "Id, Intensité lumineuse, Heure, Date\n";
+                logfile << "Id, Etat, Heure, Date\n";
             } else if (sensor.getType() == "Humidity") {
                 logfile << "Fichier log des capteurs d'humidité\n";
                 logfile << "Id, Humidité %, Heure, Date\n";

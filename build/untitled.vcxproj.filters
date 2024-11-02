@@ -10,20 +10,34 @@
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\TemperatureSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Data.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Sensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Scheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\HumiditySensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\SoundSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\Data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\SoundSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\thoma\Documents\Documents\Codes\AP4A\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FC870AED-2AD0-3C12-B071-238F933C1891}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{C1A0654A-D75A-3245-A876-8E958D31F449}</UniqueIdentifier>
     </Filter>
