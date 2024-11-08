@@ -26,7 +26,8 @@ Scheduler scheduler(3000);  // Intervalle de mise à jour des capteurs
 
 // Création des capteurs
 TemperatureSensor tempSensor(server);  // On passe directement le serveur au constructeur
-HumiditySensor humiditySensor(server); // Exemple pour le capteur d'humidité
+HumiditySensor humiditySensor(server);
+HumiditySensor humiditySensor2(server); // Exemple pour le capteur d'humidité
 SoundSensor soundSensor(server);
 LightSensor lightsensor(server);
 
@@ -35,6 +36,7 @@ scheduler.addSensor(tempSensor);
 scheduler.addSensor(humiditySensor);
 scheduler.addSensor(soundSensor);
 scheduler.addSensor(lightsensor);
+scheduler.addSensor(humiditySensor2);
 
 // Simulation de l'ordonnancement des capteurs
 scheduler.simulation();

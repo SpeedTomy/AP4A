@@ -9,10 +9,10 @@
 
 // Constructeur
 Server::Server() {
-sensorCounts[0] = 0;  // Temperature
-sensorCounts[1] = 0;  // Humidity
-sensorCounts[2] = 0;  // Light
-sensorCounts[3] = 0;  // Sound
+sensorCounts["Temperature"]=0;
+sensorCounts["Humidity"] = 0;
+sensorCounts["Light"] = 0;
+sensorCounts["Sound"] = 0;
 }
 
 // Destructeur
@@ -23,43 +23,29 @@ delete sensor;
 }
 }
 // Constructeur par copie
-Server::Server(const Server& other) {
-// Copie des capteurs
-for (auto sensor : other.sensors) {
-    sensors.push_back(sensor); 
+Server::Server(const Server& other)
+    : sensors(other.sensors),          // Use member initializer for sensors
+      sensorCounts(other.sensorCounts)  // Copy sensorCountss map directly
+{
+    // No need for explicit looping since maps and vectors handle copy with member initializers
 }
-// Copie des compteurs
-std::copy(other.sensorCounts, other.sensorCounts + 4, sensorCounts);
-}
+
 
 // Opérateur d'assignation par copie
 Server& Server::operator=(const Server& other) {
-if (this != &other) { // Protection contre l'auto-assignation
-    // Libérer les capteurs actuels si nécessaire (implémentation dépend de la gestion de la mémoire)
-    sensors.clear(); // Enlève tous les capteurs précédents
-    for (auto sensor : other.sensors) {
-        sensors.push_back(sensor); // Assure-toi que la mémoire des capteurs est gérée correctement
+    if (this != &other) { // Check for self-assignment
+        sensors = other.sensors;       // Copy all sensors
+        sensorCounts = other.sensorCounts;  // Copy sensorCountss map directly
     }
-    // Copie des compteurs
-    std::copy(other.sensorCounts, other.sensorCounts + 4, sensorCounts);
-}
-return *this;
+    return *this; // Return the current object by reference
+
 }
 // Ajouter un capteur au serveur
 void Server::addSensor(Sensor& sensor) {
 
 sensors.push_back(&sensor);
-
-// Mise à jour des compteurs de capteurs par type
-if (sensor.getType() == "Temperature") {
-sensorCounts[0]++;
-} else if (sensor.getType() == "Humidity") {
-sensorCounts[1]++;
-} else if (sensor.getType() == "Light") {
-sensorCounts[2]++;
-} else if (sensor.getType() == "Sound") {
-sensorCounts[3]++;
-}
+std::string SensorType = sensor.getType();
+sensorCounts[SensorType]++;
 
 }
 
@@ -125,17 +111,10 @@ return sensors;
 
 // Retourner le nombre de capteurs d'un type donné
 int Server::getSensorCount(const std::string& type) const {
-if (type == "Temperature") {
-return sensorCounts[0];
-} else if (type == "Humidity") {
-return sensorCounts[1];
-} else if (type == "Light") {
-return sensorCounts[2];
-} else if (type == "Sound") {
-return sensorCounts[3];
+    auto it = sensorCounts.find(type);
+    return it != sensorCounts.end() ? it->second : 0;
 }
-return 0;  // Aucun capteur de ce type
-}
+
 
 // Recevoir des données génériques
 template <typename T>

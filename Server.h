@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "Sensor.h"
+#include <map>
 
 class Sensor;  // Déclaration anticipée de la classe Sensor
 
@@ -41,8 +42,7 @@ private:
 // Liste des capteurs enregistrés
 std::vector<Sensor*> sensors;
 
-// Compteurs pour le nombre de capteurs de chaque type
-int sensorCounts[4];  // [0] : Temperature, [1] : Humidity, [2] : Light, [3] : Sound
+std::map<std::string, int> sensorCounts;
 
 // Récupérer un capteur par son ID
 Sensor* getSensorById(std::string sensorID);
